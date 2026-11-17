@@ -5,7 +5,7 @@ on:
   workflow_dispatch:
     inputs:
       threshold:
-        default: "10"
+        default: "230"
 jobs:
   check:
     runs-on: ubuntu-latest
@@ -14,4 +14,4 @@ jobs:
       - run: python check_psata.py
         env:
           NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
-          THRESHOLD: ${{ github.event.inputs.threshold || '10' }}
+          THRESHOLD: ${{ github.event.inputs.threshold || '230' }}
