@@ -1,0 +1,17 @@
+name: Psata alarm
+on:
+  schedule:
+    - cron: "*/10 * * * *"
+  workflow_dispatch:
+    inputs:
+      threshold:
+        default: "230"
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python check_psata.py
+        env:
+          NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
+          THRESHOLD: ${{ github.event.inputs.threshold || '230' }}
