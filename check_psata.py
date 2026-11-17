@@ -3,7 +3,7 @@ import xml.etree.ElementTree as ET
 
 URL = "http://www.arso.gov.si/xml/vode/hidro_podatki_zadnji.xml"
 SIFRA = "4570"
-THRESHOLD = float(os.environ.get("THRESHOLD", "10"))
+THRESHOLD = float(os.environ.get("THRESHOLD", "230"))
 TOPIC = os.environ["NTFY_TOPIC"]
 
 def notify(title, message):
